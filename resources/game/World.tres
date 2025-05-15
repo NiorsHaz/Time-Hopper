@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WorldZone" load_steps=2 format=3 uid="uid://dxd8v0ve7vf67"]
+
+[ext_resource type="Script" uid="uid://bdqmrvpcxferi" path="res://scripts/resources/world_zone.gd" id="1_t64yg"]
+
+[resource]
+resource_name = "World"
+script = ExtResource("1_t64yg")
+current_zone = Vector2i(1, 0)
+metadata/_custom_type_script = "uid://bdqmrvpcxferi"

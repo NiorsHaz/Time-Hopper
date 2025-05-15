@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Character" load_steps=9 format=3 uid="uid://bbyq6dj8wjm2c"]
+
+[ext_resource type="Resource" uid="uid://doacmwifptlpr" path="res://dialogue/nathan.dialogue" id="1_peshi"]
+[ext_resource type="Script" uid="uid://brbxl5nbegdih" path="res://scripts/resources/Discussion.gd" id="2_r0kay"]
+[ext_resource type="Script" uid="uid://b5itmjuf5o0sy" path="res://scripts/resources/Essence/Essence.gd" id="2_ubgqu"]
+[ext_resource type="Script" uid="uid://yhehnhb8bqht" path="res://scripts/resources/Relation.gd" id="2_ujs22"]
+[ext_resource type="Script" uid="uid://dhi053kmbdm32" path="res://scripts/resources/Character.gd" id="3_ubgqu"]
+[ext_resource type="Texture2D" uid="uid://80l2rs5ptrwa" path="res://assets/characters/portrait/shocked.png" id="6_peshi"]
+
+[sub_resource type="Resource" id="Resource_peshi"]
+script = ExtResource("2_ubgqu")
+type = 1
+value = 51
+metadata/_custom_type_script = "uid://b5itmjuf5o0sy"
+
+[sub_resource type="Resource" id="Resource_r0kay"]
+script = ExtResource("2_r0kay")
+dialogue_resource = ExtResource("1_peshi")
+rewards = Array[ExtResource("2_ubgqu")]([SubResource("Resource_peshi")])
+hystory_reward = Array[ExtResource("3_ubgqu")]([])
+metadata/_custom_type_script = "uid://brbxl5nbegdih"
+
+[resource]
+resource_name = "Nathan"
+script = ExtResource("3_ubgqu")
+display_name = "Nathan"
+portrait = ExtResource("6_peshi")
+description = ""
+role = ""
+relations = Array[ExtResource("2_ujs22")]([])
+essences = Array[ExtResource("2_ubgqu")]([])
+discussion = SubResource("Resource_r0kay")
+position = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://dhi053kmbdm32"

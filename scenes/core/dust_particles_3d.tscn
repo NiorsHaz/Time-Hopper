@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt0rd6veripy7"]
+
+[ext_resource type="Material" uid="uid://cq7ermtqji7tx" path="res://resources/materials/dust_particle_process_material.tres" id="1_mudhl"]
+[ext_resource type="QuadMesh" uid="uid://bvas0dllkn24x" path="res://resources/materials/Dust.tres" id="2_foc0q"]
+[ext_resource type="Script" uid="uid://d0i5h1isearrw" path="res://scripts/core/dust_particles_3d_factory.gd" id="3_foc0q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mudhl"]
+size = Vector3(10, 20, 10)
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+lod_bias = 0.1
+amount = 100
+lifetime = 3.0
+randomness = 1.0
+process_material = ExtResource("1_mudhl")
+draw_pass_1 = ExtResource("2_foc0q")
+script = ExtResource("3_foc0q")
+
+[node name="GPUParticlesCollisionHeightField3D2" type="GPUParticlesCollisionHeightField3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(20, 20, 20)
+update_mode = 1
+
+[node name="GPUParticlesAttractorSphere3D2" type="GPUParticlesAttractorSphere3D" parent="."]
+strength = 7.0
+radius = 3.77379
+
+[node name="Area3D" type="Area3D" parent="."]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_mudhl")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kbh134gq7x5u"
+path="res://.godot/imported/soft-wind-leaves-316393.mp3-0e15d0b4c28f41ed513e1e817141817b.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sound/Wind Grass/soft-wind-leaves-316393.mp3"
+dest_files=["res://.godot/imported/soft-wind-leaves-316393.mp3-0e15d0b4c28f41ed513e1e817141817b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

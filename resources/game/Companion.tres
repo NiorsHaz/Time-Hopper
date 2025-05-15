@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="CompanionData" load_steps=5 format=3 uid="uid://caoobqpk6q3vf"]
+
+[ext_resource type="Script" uid="uid://b5itmjuf5o0sy" path="res://scripts/resources/Essence/Essence.gd" id="1_p05f2"]
+[ext_resource type="Script" uid="uid://yhehnhb8bqht" path="res://scripts/resources/Relation.gd" id="2_53tlg"]
+[ext_resource type="Texture2D" uid="uid://xkfcwd7nqofr" path="res://assets/characters/portrait/Companion.png" id="2_sd1rd"]
+[ext_resource type="Script" uid="uid://ccaujvajo6bva" path="res://scripts/resources/CompanionData.gd" id="3_p05f2"]
+
+[resource]
+resource_name = "Companion"
+script = ExtResource("3_p05f2")
+companion_distance_to_player = Vector3(2, 0.2, 2)
+float_amplitude_max = 0.5
+float_amplitude_min = 1.0
+float_speed = 2.0
+amplitude_increase_rate = 0.1
+character_speed = 8.0
+rotation_speed = 12.0
+acceleration = 8.0
+deceleration = 15.0
+show_path = false
+display_name = "As-I b23"
+portrait = ExtResource("2_sd1rd")
+description = ""
+role = ""
+relations = Array[ExtResource("2_53tlg")]([])
+essences = Array[ExtResource("1_p05f2")]([])
+position = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://ccaujvajo6bva"

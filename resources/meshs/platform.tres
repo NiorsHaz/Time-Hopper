@@ -1,0 +1,6 @@
+[gd_resource type="PlaneMesh" format=3 uid="uid://c0s3825l1oo0y"]
+
+[resource]
+lightmap_size_hint = Vector2i(172, 172)
+custom_aabb = AABB(-0.5, 0, -0.5, 1, 0, 0)
+size = Vector2(1, 0.4)

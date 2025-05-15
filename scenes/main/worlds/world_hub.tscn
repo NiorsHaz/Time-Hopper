@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://cll1tsc8p0b6v"]
+
+[ext_resource type="Script" uid="uid://n0sw1ng2swio" path="res://scripts/core/world_streamer.gd" id="1_s8i7k"]
+[ext_resource type="PackedScene" uid="uid://ci5ih41juyv3k" path="res://scenes/characters/player.tscn" id="2_52wmd"]
+[ext_resource type="Shader" uid="uid://dlhspx5knxd3t" path="res://resources/shaders/tileShift.gdshader" id="4_52wmd"]
+[ext_resource type="PackedScene" uid="uid://cmpug4e8jsp5b" path="res://scenes/characters/companion.tscn" id="4_fop6g"]
+[ext_resource type="Theme" uid="uid://ibl6ykiduv6w" path="res://resources/materials/balloon_dialogue.tres" id="5_6dr01"]
+[ext_resource type="PackedScene" uid="uid://cxlsbpsokxw4q" path="res://scenes/ui/button_menu.tscn" id="6_bijry"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fop6g"]
+shader = ExtResource("4_52wmd")
+shader_parameter/limit = 0.5
+shader_parameter/blur = 5.0
+shader_parameter/intensity = 2.0
+shader_parameter/debug = false
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s8i7k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dr01"]
+bg_color = Color(1, 1, 1, 0.34902)
+
+[node name="Root" type="Node3D" node_paths=PackedStringArray("world_3d")]
+script = ExtResource("1_s8i7k")
+world_3d = NodePath("WORLD")
+zone_id = Vector2i(1, 0)
+
+[node name="player" parent="." instance=ExtResource("2_52wmd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30706, -1.52456)
+
+[node name="companion" parent="." instance=ExtResource("4_fop6g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33502, 4.77452, -3.68046)
+
+[node name="WORLD" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Interface" type="Control" parent="."]
+light_mask = 2
+visibility_layer = 2
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="UIEffect" type="CanvasLayer" parent="Interface"]
+process_mode = 4
+
+[node name="Tile Shift" type="Control" parent="Interface/UIEffect"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="MarginContainer" parent="Interface/UIEffect/Tile Shift"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Interface/UIEffect/Tile Shift/Control"]
+material = SubResource("ShaderMaterial_fop6g")
+layout_mode = 2
+texture = SubResource("CanvasTexture_s8i7k")
+
+[node name="Display" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Background" type="Panel" parent="Display"]
+z_index = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6dr01")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Display"]
+z_index = 5
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -179.0
+offset_right = 245.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+theme = ExtResource("5_6dr01")
+alignment = 1
+
+[node name="Button" parent="Display/VBoxContainer" instance=ExtResource("6_bijry")]
+layout_mode = 2
+text = "Resume"
+alignment = 1
+
+[node name="Button2" parent="Display/VBoxContainer" instance=ExtResource("6_bijry")]
+layout_mode = 2
+text = "Options"
+alignment = 1
+
+[node name="Button3" parent="Display/VBoxContainer" instance=ExtResource("6_bijry")]
+layout_mode = 2
+text = "Menu Principal"
+alignment = 1
+
+[node name="Button4" parent="Display/VBoxContainer" instance=ExtResource("6_bijry")]
+layout_mode = 2
+text = "Quitter"
+alignment = 1
+
+[connection signal="pressed" from="Display/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Display/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Display/VBoxContainer/Button4" to="." method="_on_button_4_pressed"]

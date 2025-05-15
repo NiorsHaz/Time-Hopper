@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Review" load_steps=2 format=3 uid="uid://dvwq5c8ss5fy1"]
+
+[ext_resource type="Script" uid="uid://no1sy7tew6l0" path="res://scripts/resources/Review.gd" id="1_ypojc"]
+
+[resource]
+resource_name = "gameReview"
+script = ExtResource("1_ypojc")
+bad_review = 0
+medium_review = 0
+great_review = 1
+metadata/_custom_type_script = "uid://no1sy7tew6l0"

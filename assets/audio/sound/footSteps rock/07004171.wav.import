@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0b8qn1b0hmxa"
+path="res://.godot/imported/07004171.wav-3ff2df7c48c7bcfe886cb83447878b55.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound/footSteps rock/07004171.wav"
+dest_files=["res://.godot/imported/07004171.wav-3ff2df7c48c7bcfe886cb83447878b55.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

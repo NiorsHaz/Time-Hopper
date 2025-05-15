@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=7 format=3 uid="uid://clva1wo1qcsqp"]
+
+[ext_resource type="Script" uid="uid://y8nihst4jmv8" path="res://scripts/resources/PlayerData.gd" id="1_cojqh"]
+[ext_resource type="Script" uid="uid://b5itmjuf5o0sy" path="res://scripts/resources/Essence/Essence.gd" id="1_g5pwv"]
+[ext_resource type="Texture2D" uid="uid://mnfsomq6xu2n" path="res://assets/characters/portrait/happy.png" id="2_pgyg7"]
+[ext_resource type="Script" uid="uid://yhehnhb8bqht" path="res://scripts/resources/Relation.gd" id="2_twpfx"]
+
+[sub_resource type="Resource" id="Resource_duu4b"]
+script = ExtResource("1_g5pwv")
+type = 1
+value = 100
+metadata/_custom_type_script = "uid://b5itmjuf5o0sy"
+
+[sub_resource type="Resource" id="Resource_v41j4"]
+script = ExtResource("1_g5pwv")
+type = 0
+value = 100
+metadata/_custom_type_script = "uid://b5itmjuf5o0sy"
+
+[resource]
+resource_name = "Player"
+script = ExtResource("1_cojqh")
+xp = 0
+level = 1
+character_speed = 8.0
+rotation_speed = 12.0
+acceleration = 8.0
+deceleration = 15.0
+show_path = false
+display_name = "Hero"
+portrait = ExtResource("2_pgyg7")
+description = ""
+role = ""
+relations = Array[ExtResource("2_twpfx")]([])
+essences = Array[ExtResource("1_g5pwv")]([SubResource("Resource_duu4b"), SubResource("Resource_v41j4")])
+position = Vector3(4.44394, 1.03092, 4.22252)
+metadata/_custom_type_script = "uid://y8nihst4jmv8"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://btmx1jcctj5jr"
+path="res://.godot/imported/Neon Drifter.mp3-ad22b37ddb8dc95972588cb982c18293.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/song/Neon Drifter.mp3"
+dest_files=["res://.godot/imported/Neon Drifter.mp3-ad22b37ddb8dc95972588cb982c18293.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

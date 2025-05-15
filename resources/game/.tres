@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Character" load_steps=11 format=3 uid="uid://copaj8o01mbwh"]
+
+[ext_resource type="Resource" uid="uid://05spcv5rx1yi" path="res://dialogue/fin.dialogue" id="1_7ybyo"]
+[ext_resource type="Script" uid="uid://dhi053kmbdm32" path="res://scripts/resources/Character.gd" id="2_7tfx6"]
+[ext_resource type="Resource" uid="uid://clva1wo1qcsqp" path="res://resources/game/Player.tres" id="3_gjuqj"]
+[ext_resource type="Script" uid="uid://b5itmjuf5o0sy" path="res://scripts/resources/Essence/Essence.gd" id="4_b2nh4"]
+[ext_resource type="Script" uid="uid://brbxl5nbegdih" path="res://scripts/resources/Discussion.gd" id="5_mk7dj"]
+[ext_resource type="Texture2D" uid="uid://mnfsomq6xu2n" path="res://assets/characters/portrait/happy.png" id="6_xrhid"]
+[ext_resource type="Script" uid="uid://yhehnhb8bqht" path="res://scripts/resources/Relation.gd" id="7_njviv"]
+
+[sub_resource type="Resource" id="Resource_twpfx"]
+script = ExtResource("4_b2nh4")
+type = 0
+value = 100
+metadata/_custom_type_script = "uid://b5itmjuf5o0sy"
+
+[sub_resource type="Resource" id="Resource_pgyg7"]
+script = ExtResource("4_b2nh4")
+type = 1
+value = 100
+metadata/_custom_type_script = "uid://b5itmjuf5o0sy"
+
+[sub_resource type="Resource" id="Resource_1ljel"]
+resource_name = "TimeHopper"
+script = ExtResource("5_mk7dj")
+dialogue_resource = ExtResource("1_7ybyo")
+rewards = Array[ExtResource("4_b2nh4")]([SubResource("Resource_twpfx"), SubResource("Resource_pgyg7")])
+hystory_reward = Array[ExtResource("2_7tfx6")]([ExtResource("3_gjuqj")])
+metadata/_custom_type_script = "uid://brbxl5nbegdih"
+
+[resource]
+script = ExtResource("2_7tfx6")
+display_name = "Time hopper"
+portrait = ExtResource("6_xrhid")
+description = ""
+role = ""
+relations = Array[ExtResource("7_njviv")]([])
+essences = Array[ExtResource("4_b2nh4")]([])
+discussion = SubResource("Resource_1ljel")
+position = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://dhi053kmbdm32"

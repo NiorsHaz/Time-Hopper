@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c61r1u7jnxtf4"
+path="res://.godot/imported/WINDVege_Wind in tall grass (ID 0908)_BSB.wav-965336a3b54c99594fcdd0f321cd88af.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound/Wind Grass/WINDVege_Wind in tall grass (ID 0908)_BSB.wav"
+dest_files=["res://.godot/imported/WINDVege_Wind in tall grass (ID 0908)_BSB.wav-965336a3b54c99594fcdd0f321cd88af.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

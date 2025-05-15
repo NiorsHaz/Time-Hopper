@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxkihg806xhmw"]
+
+[ext_resource type="Script" uid="uid://dr6yomq48soyk" path="res://scripts/camera/camera_rig_follow_player.gd" id="1_jirt3"]
+[ext_resource type="Shader" uid="uid://b2myjbnv2qsiw" path="res://resources/shaders/sha_matt.gdshader" id="2_5pmvu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t6lca"]
+render_priority = 0
+shader = ExtResource("2_5pmvu")
+shader_parameter/shadow_color = Color(0, 0, 0, 1)
+shader_parameter/shadow_thickness = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_jirt3"]
+material = SubResource("ShaderMaterial_t6lca")
+
+[node name="Base_camera" type="Camera3D"]
+size = 13.8927
+near = 0.001
+script = ExtResource("1_jirt3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.348993)
+mesh = SubResource("QuadMesh_jirt3")

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3e20kbdiwagr"]
+
+[ext_resource type="Theme" uid="uid://ibl6ykiduv6w" path="res://resources/core/balloon_dialogue.tres" id="1_i34ak"]
+[ext_resource type="Script" uid="uid://5qnpp1mtntft" path="res://scripts/ui/InventorySlot.gd" id="2_i34ak"]
+
+[node name="InventorySlot" type="Button" node_paths=PackedStringArray("EquippedHighlight", "IconSlot")]
+custom_minimum_size = Vector2(100, 100)
+offset_right = 84.0
+offset_bottom = 84.0
+theme = ExtResource("1_i34ak")
+script = ExtResource("2_i34ak")
+EquippedHighlight = NodePath("EquippedHighlight")
+IconSlot = NodePath("IconSlot")
+
+[node name="EquippedHighlight" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IconSlot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1

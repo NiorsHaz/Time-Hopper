@@ -1,0 +1,36 @@
+~ start
+TimeHopper: Merci d’avoir joué à notre jeu 🥹  
+TimeHopper: C’est notre tout premier jeu !  
+TimeHopper: Même si ce n’est pas encore totalement à la hauteur de nos attentes…  
+TimeHopper: On espère vraiment que ça vous a plu !  
+TimeHopper: Donnez-nous votre avis pour qu’on puisse améliorer le jeu ✨  
+
+- Ce n’était pas vraiment à la hauteur  
+	do state_dialogue.bad_review += 1
+	TimeHopper: Merci pour votre retour 🙏  
+	TimeHopper: On est vraiment désolés si ça ne correspondait pas à vos attentes.  
+	TimeHopper: On prendra vos remarques en compte pour la suite, si vous le souhaitez.
+	TimeHopper: Avis négatif enregistré : {{ state_dialogue.bad_review }} 
+	do state_dialogue.save_review()
+	=> END
+
+- Je pense qu’il manque encore quelques éléments  
+	do state_dialogue.medium_review += 1
+	TimeHopper: Je vous jure, le temps était un peu chaotique pendant le développement… mais bon 🥹  
+	TimeHopper: Merci beaucoup pour votre avis 😁  
+	TimeHopper: Tenez, un petit bonus pour la prochaine version !  
+	TimeHopper: Qui sait, ça pourrait vous être utile dans la suite 😉  
+	do DataManager.load("TimeHopper").discussion.give_reward(game_manager.player.Player_data)  
+	do DataManager.load("TimeHopper").save()  
+	TimeHopper: Avis moyen enregistré : {{ state_dialogue.medium_review }} 
+	do state_dialogue.save_review()
+	=> END
+
+- N’abandonnez pas, je vous soutiens !  
+	do state_dialogue.great_review += 1
+	TimeHopper: Toute notre gratitude, cher joueur 🙏  
+	TimeHopper: Avis positif enregistré : {{ state_dialogue.great_review }}
+	do state_dialogue.save_review()
+	=> END
+
+=> END!

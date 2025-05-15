@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Character" load_steps=10 format=3 uid="uid://xxcmym4i2bc6"]
+
+[ext_resource type="Resource" uid="uid://davkj2bw4oo51" path="res://dialogue/qiz.dialogue" id="1_185jf"]
+[ext_resource type="Script" uid="uid://dhi053kmbdm32" path="res://scripts/resources/Character.gd" id="2_adkld"]
+[ext_resource type="Script" uid="uid://b5itmjuf5o0sy" path="res://scripts/resources/Essence/Essence.gd" id="3_vn8vn"]
+[ext_resource type="Script" uid="uid://brbxl5nbegdih" path="res://scripts/resources/Discussion.gd" id="4_jg7km"]
+[ext_resource type="Texture2D" uid="uid://catqlixqeo3ck" path="res://assets/characters/portrait/annoyed.png" id="5_kv4bf"]
+[ext_resource type="Script" uid="uid://yhehnhb8bqht" path="res://scripts/resources/Relation.gd" id="6_m88oi"]
+
+[sub_resource type="Resource" id="Resource_80ej8"]
+script = ExtResource("3_vn8vn")
+type = 0
+value = 60
+metadata/_custom_type_script = "uid://b5itmjuf5o0sy"
+
+[sub_resource type="Resource" id="Resource_duu4b"]
+script = ExtResource("3_vn8vn")
+type = 1
+value = 30
+metadata/_custom_type_script = "uid://b5itmjuf5o0sy"
+
+[sub_resource type="Resource" id="Resource_btngy"]
+script = ExtResource("4_jg7km")
+dialogue_resource = ExtResource("1_185jf")
+rewards = Array[ExtResource("3_vn8vn")]([SubResource("Resource_80ej8"), SubResource("Resource_duu4b")])
+hystory_reward = Array[ExtResource("2_adkld")]([])
+metadata/_custom_type_script = "uid://brbxl5nbegdih"
+
+[resource]
+resource_name = "Luna"
+script = ExtResource("2_adkld")
+display_name = "Luna"
+portrait = ExtResource("5_kv4bf")
+description = ""
+role = ""
+relations = Array[ExtResource("6_m88oi")]([])
+essences = Array[ExtResource("3_vn8vn")]([])
+discussion = SubResource("Resource_btngy")
+position = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://dhi053kmbdm32"

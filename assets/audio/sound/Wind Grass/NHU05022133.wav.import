@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dll6sp5aynru1"
+path="res://.godot/imported/NHU05022133.wav-cb72eac7db3710fe2af5d8e40d5c6312.sample"
+
+[deps]
+
+source_file="res://assets/audio/sound/Wind Grass/NHU05022133.wav"
+dest_files=["res://.godot/imported/NHU05022133.wav-cb72eac7db3710fe2af5d8e40d5c6312.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

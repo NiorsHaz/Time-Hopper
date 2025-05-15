@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgpgmjptf6lin"]
+
+[ext_resource type="PackedScene" uid="uid://dt0rd6veripy7" path="res://scenes/core/dust_particles_3d.tscn" id="1_ivmuy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" parent="." instance=ExtResource("1_ivmuy")]

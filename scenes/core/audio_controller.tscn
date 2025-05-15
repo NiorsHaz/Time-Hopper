@@ -1,0 +1,15 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce0xk8l84mqs4"]
+
+[ext_resource type="Script" uid="uid://7g85skl73so3" path="res://scripts/core/audio_manager.gd" id="1_es8wx"]
+[ext_resource type="AudioStream" uid="uid://b68rc03mlyysh" path="res://assets/audio/song/Neon Drifter (1).mp3" id="2_r0hqj"]
+[ext_resource type="AudioStream" uid="uid://btmx1jcctj5jr" path="res://assets/audio/song/Neon Drifter.mp3" id="3_2qfm8"]
+[ext_resource type="AudioStream" uid="uid://bxqabig4whloo" path="res://assets/audio/song/Vision Eternal (1).mp3" id="4_gee4n"]
+[ext_resource type="AudioStream" uid="uid://bxkwym25hi5rs" path="res://assets/audio/song/Vision Eternal.mp3" id="5_3ua0n"]
+[ext_resource type="AudioStream" uid="uid://bnfu0tprnjirf" path="res://assets/audio/song/Whispers of Tomorrow (1).mp3" id="6_hc3re"]
+[ext_resource type="AudioStream" uid="uid://cp446jni10p04" path="res://assets/audio/song/Whispers of Tomorrow.mp3" id="7_u47g3"]
+
+[node name="AudioStreamPlayer" type="Node"]
+script = ExtResource("1_es8wx")
+music_tracks = Array[AudioStream]([ExtResource("2_r0hqj"), ExtResource("3_2qfm8"), ExtResource("4_gee4n"), ExtResource("5_3ua0n"), ExtResource("6_hc3re"), ExtResource("7_u47g3")])
+max_distance = 15.0
+volume_range = Vector2(20, 0)

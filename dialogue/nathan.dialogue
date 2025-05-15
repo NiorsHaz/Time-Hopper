@@ -1,0 +1,52 @@
+~ start
+Nathan: [[Yo|Salut|Hey]],
+{{game_manager.player.Player_data.resource_name}} : Je suis censé faire quoi, moi ? Je viens juste d’arriver ici...
+Nathan: Yo, salut ! Moi, c’est {{DataManager.load("Nathan").display_name}}. T’as l’air un peu paumé, mais plutôt cool !
+
+- Présentation
+	{{game_manager.player.Player_data.resource_name}} : Salut {{DataManager.load("Nathan").display_name}} ! Moi, c’est {{game_manager.player.Player_data.display_name}}. Les drones, c’est trop stylé !
+	Nathan: Haha, carrément ! Je bosse sur un drone capable de hacker des serrures. On devrait traîner ensemble, mec !
+	{{game_manager.companion.Companion_data.resource_name}}: Pourquoi les drones ?
+	{{game_manager.player.Player_data.resource_name}}: Bah regarde-le, ça saute aux yeux !!!
+	Nathan: Ahhh, t’as un drone IA, à ce que je vois !
+	{{game_manager.companion.Companion_data.resource_name}}: Ah, je suis son compagnon !
+	{{game_manager.player.Player_data.resource_name}}: C’est mon PC, c’est lui qui m’a amené ici.
+	Nathan: Ça tombe bien, je suis justement en train d’en fabriquer un. J’aurais besoin d’un coup de main.
+	Nathan: Il me faut [wave amp=25 freq=5]3 cubes[/wave]. 
+	- Aider [if game_manager.get_player().inventory_ui_handler.filtre_slots("cube") > 0] => aide_nathan
+	- Ne rien faire => END
+
+- Salutation
+	{{game_manager.player.Player_data.resource_name}} : Euh, salut. C’est quoi ton délire ?
+	Nathan: Juste un gars qui bricole des drones et des IA. C’est pas trop ton truc ?
+	=> END
+
+- Être poli
+	{{game_manager.player.Player_data.resource_name}} : C’est cool, mais pas trop mon style.
+	Nathan: Pas de souci, on en reparlera peut-être.
+	=> END
+
+- Être indifférent
+	{{game_manager.player.Player_data.resource_name}} : Bof, je passais juste.
+	Nathan: OK, à plus !
+	=> END
+
+- Silence
+	Nathan: Wow, t’es du genre mystérieux, hein ? Bon, moi, c’est {{DataManager.load("Nathan").display_name}}, si jamais tu veux papoter plus tard.
+	=> END
+
+=> END!
+
+~ aide_nathan
+Nathan: Oh, merci !
+{{game_manager.player.Player_data.resource_name}} : Mais de rien !
+if game_manager.get_player().inventory_ui_handler.filtre_slots("cube") > 2
+	Nathan: Parfait ! Tu as exactement ce qu’il me faut !
+	do game_manager.get_player().inventory_ui_handler.remove("cube", 3)
+	do DataManager.load("Nathan").discussion.give_reward(game_manager.player.Player_data)
+	do DataManager.load("Nathan").save()
+	=> END
+else
+	Nathan: Hmm... c’est pas encore suffisant. Il me faut encore [wave amp=25 freq=5]{{3 - game_manager.get_player().inventory_ui_handler.filtre_slots("cube")}} cube(s)[/wave].
+	=> END
+=> END!

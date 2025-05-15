@@ -1,0 +1,15 @@
+~ start
+GAMEXL-24: [wave]BIENVENUE DANS TIME HOPPER ![/wave] [wait=3] [next=auto]
+~ LINE1
+GAMEXL-24: LES MEMBRES DE LA TEAM [wave]PINPOINT[/wave]... [wait=3] [next=auto]
+~ LINE2
+GAMEXL-24: CRÉDITS : [wait=2.0] [wait=3] [next=auto]
+~ LINE3
+DÉVELOPPEURS: NANTENAINA ISAAC, TIFFANY IRINA [wait=3] [next=auto]
+~ LINE4
+LEVEL DESIGN: TSIFERANA, AURÉLIE [wait=3] [next=auto]
+~ LINE5
+SCÉNARIO: IRI, RAVAKA [wait=3] [next=auto]
+~ LINE6
+GAMEXL-24: PASSEZ UN BON MOMENT ET FAITES ATTENTION À VOS CHOIX !
+=> END!

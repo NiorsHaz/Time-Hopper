@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfidrpan3ddsn"]
+
+[ext_resource type="Script" uid="uid://c8hwcv1yvudsn" path="res://scripts/ui/user_interface.gd" id="1_anxh4"]
+[ext_resource type="Theme" uid="uid://ibl6ykiduv6w" path="res://resources/materials/balloon_dialogue.tres" id="2_27xyo"]
+
+[node name="UserInterface" type="CanvasLayer"]
+script = ExtResource("1_anxh4")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_27xyo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -577.0
+offset_top = -34.0
+offset_right = 577.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="QI UI" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/QI UI"]
+custom_minimum_size = Vector2(100, 27)
+layout_mode = 2
+text = "QI
+"
+
+[node name="QIBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer/QI UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+show_percentage = false
+
+[node name="Sociability UI" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/Sociability UI"]
+custom_minimum_size = Vector2(100, 27)
+layout_mode = 2
+text = "Sociability"
+
+[node name="SociabilityBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer/Sociability UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 7)
+layout_mode = 2
+show_percentage = false

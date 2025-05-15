@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://6mfxtac1desh"]
+
+[ext_resource type="Script" uid="uid://belcebydrrk08" path="res://scripts/core/interactable_item.gd" id="1_ebmdc"]
+[ext_resource type="Script" uid="uid://h0xw6sjyj76y" path="res://scripts/core/interactable.gd" id="2_10tqp"]
+[ext_resource type="ArrayMesh" uid="uid://cvpvxm8ef45dv" path="res://resources/meshs/TestCube.tres" id="2_v1a71"]
+[ext_resource type="Material" uid="uid://rnlhlaux8ycc" path="res://resources/meshs/TestCubeSahder.tres" id="3_10tqp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o0isy"]
+size = Vector3(1.22827, 1.30103, 1.30054)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocbfk"]
+albedo_color = Color(5.58317e-06, 0.730956, 0.916362, 1)
+metallic_specular = 1.0
+emission_enabled = true
+backlight_enabled = true
+backlight = Color(1, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0vugq"]
+material = SubResource("StandardMaterial3D_ocbfk")
+
+[node name="ItemTestCube" type="RigidBody3D" node_paths=PackedStringArray("ItemHighlightMesh")]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_ebmdc")
+ItemHighlightMesh = NodePath("MeshInstance3D/Outline")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("2_10tqp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_o0isy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0vugq")
+
+[node name="Outline" type="MeshInstance3D" parent="MeshInstance3D"]
+visible = false
+mesh = ExtResource("2_v1a71")
+surface_material_override/0 = ExtResource("3_10tqp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_o0isy")

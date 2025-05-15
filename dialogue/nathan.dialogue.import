@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://doacmwifptlpr"
+path="res://.godot/imported/nathan.dialogue-28ad4a3e049accdf034836d3f5343008.tres"
+
+[deps]
+
+source_file="res://dialogue/nathan.dialogue"
+dest_files=["res://.godot/imported/nathan.dialogue-28ad4a3e049accdf034836d3f5343008.tres"]
+
+[params]
+
+defaults=true

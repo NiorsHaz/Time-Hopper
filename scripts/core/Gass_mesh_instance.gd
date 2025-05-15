@@ -1,0 +1,2 @@
+extends MultiMeshInstance3D
+class_name GrassMeshInstance

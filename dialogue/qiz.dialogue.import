@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://davkj2bw4oo51"
+path="res://.godot/imported/qiz.dialogue-d18352bee7a1f8eb8f64272eb078235c.tres"
+
+[deps]
+
+source_file="res://dialogue/qiz.dialogue"
+dest_files=["res://.godot/imported/qiz.dialogue-d18352bee7a1f8eb8f64272eb078235c.tres"]
+
+[params]
+
+defaults=true

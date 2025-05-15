@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clh3ejhaikqtr"
+path="res://.godot/imported/soft-wind-sound-314943.mp3-596cee5a87b2e6273dce25aab0decebd.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sound/Wind Grass/soft-wind-sound-314943.mp3"
+dest_files=["res://.godot/imported/soft-wind-sound-314943.mp3-596cee5a87b2e6273dce25aab0decebd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

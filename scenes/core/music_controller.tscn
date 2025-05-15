@@ -1,0 +1,14 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1334hli4hxh"]
+
+[ext_resource type="Script" uid="uid://7g85skl73so3" path="res://scripts/core/audio_manager.gd" id="1_7kpai"]
+[ext_resource type="AudioStream" uid="uid://b68rc03mlyysh" path="res://assets/audio/song/Neon Drifter (1).mp3" id="2_xa30h"]
+[ext_resource type="AudioStream" uid="uid://btmx1jcctj5jr" path="res://assets/audio/song/Neon Drifter.mp3" id="3_lp7of"]
+[ext_resource type="AudioStream" uid="uid://bxqabig4whloo" path="res://assets/audio/song/Vision Eternal (1).mp3" id="4_21fpk"]
+[ext_resource type="AudioStream" uid="uid://bxkwym25hi5rs" path="res://assets/audio/song/Vision Eternal.mp3" id="5_gghi2"]
+[ext_resource type="AudioStream" uid="uid://bnfu0tprnjirf" path="res://assets/audio/song/Whispers of Tomorrow (1).mp3" id="6_aoyat"]
+[ext_resource type="AudioStream" uid="uid://cp446jni10p04" path="res://assets/audio/song/Whispers of Tomorrow.mp3" id="7_35qja"]
+[ext_resource type="AudioStream" uid="uid://cqupx23jomjo6" path="res://assets/audio/song/Skyline Pulse 2147.mp3" id="9_21fpk"]
+
+[node name="MusicStreamPlayer" type="Node"]
+script = ExtResource("1_7kpai")
+music_tracks = Array[AudioStream]([ExtResource("2_xa30h"), ExtResource("3_lp7of"), ExtResource("9_21fpk"), ExtResource("4_21fpk"), ExtResource("5_gghi2"), ExtResource("6_aoyat"), ExtResource("7_35qja")])

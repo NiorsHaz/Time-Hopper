@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtinc8bpyqau7"
+path="res://.godot/imported/The Mysterious Future.mp3-415cad26b6212d45152ff576fc1c6199.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/song/The Mysterious Future.mp3"
+dest_files=["res://.godot/imported/The Mysterious Future.mp3-415cad26b6212d45152ff576fc1c6199.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

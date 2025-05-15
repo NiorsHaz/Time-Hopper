@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b873l7yi4uam8"
+path="res://.godot/imported/Neon Metropolis_ Skyline Drift (1).mp3-0c6db306b7f96c64f2259b35f96a89f4.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/song/Neon Metropolis_ Skyline Drift (1).mp3"
+dest_files=["res://.godot/imported/Neon Metropolis_ Skyline Drift (1).mp3-0c6db306b7f96c64f2259b35f96a89f4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

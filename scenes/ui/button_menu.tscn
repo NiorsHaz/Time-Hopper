@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxlsbpsokxw4q"]
+
+[ext_resource type="Script" uid="uid://bung5268u474i" path="res://scripts/ui/hovering_button.gd" id="1_4te0r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4te0r"]
+bg_color = Color(0.213922, 0.133107, 0.563625, 1)
+
+[node name="Button" type="Button"]
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_4te0r")
+text = "OPTIONS
+"
+alignment = 2
+script = ExtResource("1_4te0r")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=3 uid="uid://hkpo1iq326kt"]
+
+[ext_resource type="Script" uid="uid://blyem00g5kxx8" path="res://helpers/scripts/actionable.gd" id="1_sagq0"]
+[ext_resource type="PackedScene" uid="uid://do72biv4tlisy" path="res://dialogue/UI/balloon.tscn" id="2_afo8t"]
+[ext_resource type="Shader" uid="uid://dkb7euoxf7qd" path="res://resources/shaders/sha_actionable_area.gdshader" id="3_h54y2"]
+[ext_resource type="Shader" uid="uid://dp2vifilsrew4" path="res://resources/shaders/sha_actionable_area2.gdshader" id="4_sagq0"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_sagq0"]
+height = 2.001
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sgnoy"]
+render_priority = 0
+shader = ExtResource("3_h54y2")
+shader_parameter/color = Color(1, 1, 1, 0.501961)
+shader_parameter/colorB = Color(0.41, 1, 0.714833, 0)
+shader_parameter/colorAnimationStart = Color(1, 1, 1, 1)
+shader_parameter/colorAnimationEnd = Color(0.412069, 0.557618, 1, 1)
+shader_parameter/fade_length = 0.667
+shader_parameter/colorB_size = 0.5
+shader_parameter/pulse_speed = 5.0
+shader_parameter/time_offset = 11.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_sagq0"]
+radius = 1.5
+height = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_exxly"]
+render_priority = 0
+shader = ExtResource("4_sagq0")
+shader_parameter/color1 = Color(0.374139, 0.374139, 0.374139, 0)
+shader_parameter/color2 = Color(1, 1, 1, 0.643137)
+shader_parameter/threshold = 0.05
+shader_parameter/fresnel_sharpness = 1.0
+
+[node name="Actionable" type="Area3D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_sagq0")
+dialogue_interface = ExtResource("2_afo8t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2.989, 0, 0, 0, 0.388, 0, 0, 0, 2.989, 0, 0.386245, 0)
+mesh = SubResource("CylinderMesh_sagq0")
+surface_material_override/0 = SubResource("ShaderMaterial_sgnoy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_sagq0")
+surface_material_override/0 = SubResource("ShaderMaterial_exxly")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

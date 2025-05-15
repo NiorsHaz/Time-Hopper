@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfidrpan3ddsn"]
+
+[ext_resource type="Script" uid="uid://c8hwcv1yvudsn" path="res://helpers/scripts/user_interface.gd" id="1_anxh4"]
+[ext_resource type="Theme" uid="uid://ibl6ykiduv6w" path="res://resources/core/balloon_dialogue.tres" id="2_27xyo"]
+
+[node name="UserInterface" type="CanvasLayer"]
+script = ExtResource("1_anxh4")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 3
+offset_right = 509.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_27xyo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 0
+offset_right = 523.0
+offset_bottom = 169.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 17
+
+[node name="QI UI" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/QI UI"]
+custom_minimum_size = Vector2(100, 27)
+layout_mode = 2
+text = "QI
+"
+
+[node name="QIBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer/QI UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="Sociability UI" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/VBoxContainer/Sociability UI"]
+custom_minimum_size = Vector2(100, 27)
+layout_mode = 2
+text = "Sociability"
+
+[node name="SociabilityBar" type="ProgressBar" parent="Control/MarginContainer/VBoxContainer/Sociability UI"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2

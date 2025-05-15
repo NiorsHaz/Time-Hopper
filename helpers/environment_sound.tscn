@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://ikr3od68ao4u"]
+
+[ext_resource type="Script" uid="uid://occ4nq5yitly" path="res://scripts/core/GPUSoundEnvironment.gd" id="1_cloe7"]
+[ext_resource type="AudioStream" uid="uid://dll6sp5aynru1" path="res://assets/audio/sound/Wind Grass/NHU05022133.wav" id="2_rv02j"]
+[ext_resource type="AudioStream" uid="uid://dixpkeisqviu4" path="res://assets/audio/sound/Wind Grass/NHU05075148.wav" id="3_ehk5o"]
+
+[node name="WorldSound" type="Node3D" node_paths=PackedStringArray("sound_tracks_players")]
+script = ExtResource("1_cloe7")
+sound_tracks = Array[AudioStream]([ExtResource("2_rv02j"), ExtResource("3_ehk5o")])
+sound_tracks_players = [null, null, null, null, null]
+volume_range = Vector2(20, 0)

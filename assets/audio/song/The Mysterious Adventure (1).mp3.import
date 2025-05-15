@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjwycg1t1yaqx"
+path="res://.godot/imported/The Mysterious Adventure (1).mp3-6409225f4453f7eefca934c96afe39fc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/song/The Mysterious Adventure (1).mp3"
+dest_files=["res://.godot/imported/The Mysterious Adventure (1).mp3-6409225f4453f7eefca934c96afe39fc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

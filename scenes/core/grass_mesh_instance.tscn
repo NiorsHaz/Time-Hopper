@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqphb7otoafa5"]
+
+[ext_resource type="Script" uid="uid://bsprtdqdwvk20" path="res://scripts/core/Gass_mesh_instance.gd" id="1_fef8u"]
+[ext_resource type="Shader" uid="uid://b7bab6py311e5" path="res://resources/shaders/sha_grass.gdshader" id="1_txn7y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekvm3"]
+render_priority = 0
+shader = ExtResource("1_txn7y")
+shader_parameter/color_top = Color(1, 1, 0.12549, 1)
+shader_parameter/color_bottom = Color(0, 0.286275, 0, 1)
+shader_parameter/deg_sway_pitch = 80.0
+shader_parameter/deg_sway_yaw = 45.0
+shader_parameter/wind_scale = 1.0
+shader_parameter/wind_speed = 0.5
+shader_parameter/wind_direction = Vector3(0, 0, -1)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D"]
+material_override = SubResource("ShaderMaterial_ekvm3")
+cast_shadow = 0
+lod_bias = 0.1
+script = ExtResource("1_fef8u")

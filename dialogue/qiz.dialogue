@@ -1,0 +1,335 @@
+~ start
+if state_dialogue.quiz_qcm_luna_score >= 5 and state_dialogue.quiz_vf_luna_score >= 5 and state_dialogue.quiz_yn_luna_score >= 5:
+	Luna: felicitation vous avez ganier
+	if !state_dialogue.quiz_qcm_luna_use_IA and !state_dialogue.quiz_vf_luna_use_IA and !state_dialogue.quiz_yn_luna_use_IA
+		do DataManager.load("Luna").discussion.give_reward(game_manager.player.Player_data)
+		do DataManager.load("Luna").save()
+		=> END
+else
+	Luna: [if state_dialogue.quiz_qcm_luna_score <= 0 and state_dialogue.quiz_vf_luna_score <= 0 and state_dialogue.quiz_yn_luna_score <= 0] Bienvenue au défi des connaisseurs ! Prêt à tester ta culture pop ?[/if]. [if state_dialogue.quiz_qcm_luna_score > 0 and state_dialogue.quiz_vf_luna_score > 0 and state_dialogue.quiz_yn_luna_score > 0] [[Salut vous revoila|Hey envie de refaire]] [/if] 
+	Luna: Choisis ton type de quiz :
+	- QCM  (score actuel {{ state_dialogue.quiz_qcm_luna_score }})
+		=> quiz_qcm
+	- Vrai / Faux (score actuel {{ state_dialogue.quiz_vf_luna_score }})
+		=> quiz_vf
+	- Oui / Non (score actuel {{ state_dialogue.quiz_yn_luna_score }})
+		=> quiz_yn
+
+~ quiz_failed
+Luna: Mauvaise réponse, dommage… Tu peux aller voir le PNJ pour une nouvelle chance !
+=> END
+
+
+
+# QCM
+
+
+
+~ quiz_qcm
+Luna: QCM lancé ! Une seule bonne réponse par question. Bonne chance !
+
+- Laisser l’IA le faire
+	do state_dialogue.quiz_qcm_luna_use_IA = true
+	{{game_manager.companion.Companion_data.resource_name}}: Analyse en cours… Connexion à la base de données des savoirs numériques.
+	Luna: tout Réponse correcte validée par IA.
+	do state_dialogue.quiz_qcm_luna_score = 10
+	=> start
+
+
+- Le faire soi-même
+	Luna: Première question :
+	Luna: Quelle technologie est considérée comme clé pour le futur de l’énergie propre ?
+	- Nucléaire classique
+		=> quiz_failed
+	- Fusion nucléaire
+		do state_dialogue.quiz_qcm_luna_score += 1
+		=> quiz_qcm_2
+	- Charbon amélioré
+		=> quiz_failed
+
+~ quiz_qcm_2
+Luna: Question 2 :
+Luna: Quelle technologie permet aux objets de communiquer entre eux sans intervention humaine ?
+- Bluetooth
+	=> quiz_failed
+- Internet des objets (IoT)
+	do state_dialogue.quiz_qcm_luna_score += 1
+	=> quiz_qcm_3
+- Antivirus
+
+~ quiz_qcm_3
+Luna: Question 3 :
+Luna: Quel est le rôle principal de l’intelligence artificielle ?
+- Décorer des sites web
+	=> quiz_failed
+- Simuler l’intelligence humaine
+	do state_dialogue.quiz_qcm_luna_score += 1
+	=> quiz_qcm_4
+- Sauvegarder des fichiers
+
+~ quiz_qcm_4
+Luna: Question 4 :
+Luna: Quelle invention pourrait révolutionner les transports dans les 20 prochaines années ?
+- Les bus thermiques
+	=> quiz_failed
+- Les voitures volantes
+	do state_dialogue.quiz_qcm_luna_score += 1
+	=> quiz_qcm_5
+- Le télégramme
+
+~ quiz_qcm_5
+Luna: Question 5 :
+Luna: Quel est l'objectif du projet Starlink d’Elon Musk ?
+- Explorer la Lune
+	=> quiz_failed
+- Fournir Internet partout sur Terre
+	do state_dialogue.quiz_qcm_luna_score += 1
+	=> quiz_qcm_6
+- Construire des fusées pour le tourisme
+
+~ quiz_qcm_6
+Luna: Question 6 :
+Luna: Quelle technologie est utilisée pour créer de la monnaie numérique comme le Bitcoin ?
+- Cloud computing
+	=> quiz_failed
+- Blockchain
+	do state_dialogue.quiz_qcm_luna_score += 1
+	=> quiz_qcm_7
+- Antivirus
+
+~ quiz_qcm_7
+Luna: Question 7 :
+Luna: Quelle profession risque le plus d’être automatisée par l’IA ?
+- Médecin
+	=> quiz_failed
+- Caissier
+	do state_dialogue.quiz_qcm_luna_score += 1
+	=> quiz_qcm_8
+- Avocat
+
+~ quiz_qcm_8
+Luna: Question 8 :
+Luna: Que signifie “smart city” ?
+- Une ville où tout le monde est diplômé
+	=> quiz_failed
+- Une ville connectée et optimisée par la technologie
+	do state_dialogue.quiz_qcm_luna_score += 1
+	=> quiz_qcm_9
+- Une ville pleine d’écoles
+
+~ quiz_qcm_9
+Luna: Question 9 :
+Luna: Quelle technologie permet de simuler des environnements immersifs en 3D ?
+- Réalité virtuelle (VR)
+	do state_dialogue.quiz_qcm_luna_score += 1
+	=> quiz_qcm_10
+- Streaming
+	=> quiz_failed
+- PowerPoint
+
+~ quiz_qcm_10
+Luna: Dernière question :
+Luna: En 2050, quelle technologie est pressentie pour soigner des maladies en réparant l’ADN ?
+- Clonage
+	=> quiz_failed
+- Thérapie génique
+	do state_dialogue.quiz_qcm_luna_score += 1
+	Luna: Bravo {{game_manager.player.Player_data.display_name}} !
+	Luna: Tu viens de finir le QCM du Futur avec succès.
+	=> END
+- Chimie ancienne
+	=> quiz_failed
+
+
+
+#OUI OU NON
+
+
+
+~ quiz_yn
+Luna: Oui ou non ? Simple, non ? Allez, concentre-toi !
+
+- Laisser l’IA le faire
+	do state_dialogue.quiz_yn_luna_use_IA = true
+	{{game_manager.companion.Companion_data.resource_name}}: Analyse en cours… Connexion à la base de données des savoirs numériques.
+	Luna: tout Réponse correcte validée par IA.
+	do state_dialogue.quiz_yn_luna_score = 10
+	=> start
+
+- Le faire soi-même
+	Luna: Question 1 : Les voitures autonomes peuvent déjà circuler dans certaines villes ?
+	- Oui
+		do state_dialogue.quiz_yn_luna_score += 1
+		=> quiz_yn_2
+	- Non
+		=> quiz_failed
+
+~ quiz_yn_2
+Luna: Question 2 : Est-ce que les robots chirurgicaux existent déjà en hôpital ?
+- Oui
+	do state_dialogue.quiz_yn_luna_score += 1
+	=> quiz_yn_3
+- Non
+	=> quiz_failed
+
+~ quiz_yn_3
+Luna: Question 3 : Est-ce que l’intelligence artificielle peut ressentir des émotions comme un humain ?
+- Oui
+	=> quiz_failed
+- Non
+	do state_dialogue.quiz_yn_luna_score += 1
+	=> quiz_yn_4
+
+~ quiz_yn_4
+Luna: Question 4 : Est-ce qu’on utilise déjà des drones pour livrer des colis ?
+- Oui
+	do state_dialogue.quiz_yn_luna_score += 1
+	=> quiz_yn_5
+- Non
+	=> quiz_failed
+
+~ quiz_yn_5
+Luna: Question 5 : Le métavers est un projet abandonné depuis 2022 ?
+- Oui
+	=> quiz_failed
+- Non
+	do state_dialogue.quiz_yn_luna_score += 1
+	=> quiz_yn_6
+
+~ quiz_yn_6
+Luna: Question 6 : Est-ce que des implants électroniques peuvent aider des personnes à marcher ?
+- Oui
+	do state_dialogue.quiz_yn_luna_score += 1
+	=> quiz_yn_7
+- Non
+	=> quiz_failed
+
+~ quiz_yn_7
+Luna: Question 7 : L'impression 3D permet de créer des organes humains aujourd’hui ?
+- Oui
+	do state_dialogue.quiz_yn_luna_score += 1
+	=> quiz_yn_8
+- Non
+	=> quiz_failed
+
+~ quiz_yn_8
+Luna: Question 8 : Est-ce qu’on peut voyager sur Mars aujourd’hui ?
+- Oui
+	=> quiz_failed
+- Non
+	do state_dialogue.quiz_yn_luna_score += 1
+	=> quiz_yn_9
+
+~ quiz_yn_9
+Luna: Question 9 : Est-ce que les monnaies numériques comme le Bitcoin existent depuis les années 2000 ?
+- Oui
+	do state_dialogue.quiz_yn_luna_score += 1
+	=> quiz_yn_10
+- Non
+	=> quiz_failed
+
+~ quiz_yn_10
+Luna: Question 10 : Est-ce que l’IA pourrait un jour écrire des livres entiers ?
+- Oui
+	do state_dialogue.quiz_yn_luna_score += 1
+	Luna: Impressionnant {{game_manager.player.Player_data.display_name}}, 
+	Luna: tu maîtrises le futur comme personne !
+	=> END
+- Non
+	=> quiz_failed
+
+
+# QUIZ VRAI OU FAUX
+
+
+~ quiz_vf
+Luna: C’est l’heure du vrai ou faux. À toi de jouer !
+
+- Laisser l’IA le faire
+	do state_dialogue.quiz_vf_luna_use_IA = true
+	{{game_manager.companion.Companion_data.resource_name}}: Analyse en cours… Connexion à la base de données des savoirs numériques.
+	Luna: tout Réponse correcte validée par IA.
+	do state_dialogue.quiz_vf_luna_score = 10
+	=> start
+
+- Le faire soi-même
+	Luna: Question 1 : L’intelligence artificielle peut générer des images à partir de simples descriptions textuelles.
+	- Vrai
+		do state_dialogue.quiz_vf_luna_score += 1
+		=> quiz_vf_2
+	- Faux
+		=> quiz_failed
+
+~ quiz_vf_2
+Luna: Question 2 : Les hologrammes 3D sont encore purement fictifs et n'existent pas du tout.
+- Vrai
+	=> quiz_failed
+- Faux
+	do state_dialogue.quiz_vf_luna_score += 1
+	=> quiz_vf_3
+
+~ quiz_vf_3
+Luna: Question 3 : Les assistants vocaux comme Alexa ou Siri utilisent l’IA pour comprendre les commandes.
+- Vrai
+	do state_dialogue.quiz_vf_luna_score += 1
+	=> quiz_vf_4
+- Faux
+	=> quiz_failed
+
+~ quiz_vf_4
+Luna: Question 4 : En 2025, tous les emplois seront remplacés par des robots.
+- Vrai
+	=> quiz_failed
+- Faux
+	do state_dialogue.quiz_vf_luna_score += 1
+	=> quiz_vf_5
+
+~ quiz_vf_5
+Luna: Question 5 : Le cloud computing permet de stocker des données à distance via internet.
+- Vrai
+	do state_dialogue.quiz_vf_luna_score += 1
+	=> quiz_vf_6
+- Faux
+	=> quiz_failed
+
+~ quiz_vf_6
+Luna: Question 6 : On peut déjà programmer des puces cérébrales pour contrôler des ordinateurs par la pensée.
+- Vrai
+	do state_dialogue.quiz_vf_luna_score += 1
+	=> quiz_vf_7
+- Faux
+	=> quiz_failed
+
+~ quiz_vf_7
+Luna: Question 7 : Les NFT sont des fichiers audio qu’on peut écouter gratuitement.
+- Vrai
+	=> quiz_failed
+- Faux
+	do state_dialogue.quiz_vf_luna_score += 1
+	=> quiz_vf_8
+
+~ quiz_vf_8
+Luna: Question 8 : Les objets connectés font partie de ce qu’on appelle “l’Internet des objets”.
+- Vrai
+	do state_dialogue.quiz_vf_luna_score += 1
+	=> quiz_vf_9
+- Faux
+	=> quiz_failed
+
+~ quiz_vf_9
+Luna: Question 9 : La reconnaissance faciale ne fonctionne que sur les téléphones très récents.
+- Vrai
+	=> quiz_failed
+- Faux
+	do state_dialogue.quiz_vf_luna_score += 1
+	=> quiz_vf_10
+
+~ quiz_vf_10
+Luna: Question 10 : Des robots ont déjà été utilisés pour explorer des planètes comme Mars.
+- Vrai
+	do state_dialogue.quiz_vf_luna_score += 1
+	Luna: Bravo {{game_manager.player.Player_data.display_name}} !
+	Luna:  Tu viens de montrer que tu connais bien ton époque… et celle d’après.
+	=> END
+- Faux
+	=> quiz_failed

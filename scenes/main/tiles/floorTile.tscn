@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://m2w5xtb4l8yp"]
+
+[ext_resource type="PackedScene" uid="uid://uk0qw4ac826b" path="res://scenes/game/Elements/platte_rook.tscn" id="1_vfp6w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ep6f6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bou82"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqloq"]
+resource_name = "Material.002"
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.881042, 0.768535, 0.625691, 1)
+albedo_texture = SubResource("CompressedTexture2D_ep6f6")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+normal_enabled = true
+normal_scale = 0.0
+normal_texture = SubResource("CompressedTexture2D_bou82")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qqloq"]
+material = SubResource("StandardMaterial3D_qqloq")
+size = Vector2(0.9, 0.9)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nvqvn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xupo"]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.511939, 0.552308, 0.578749, 1)
+albedo_texture = SubResource("CompressedTexture2D_nvqvn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p85ru"]
+material = SubResource("StandardMaterial3D_7xupo")
+size = Vector2(0.9, 0.9)
+
+[node name="FloorTile" type="Node3D"]
+
+[node name="Flatte rook" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.06467)
+
+[node name="Flatte rook" type="MeshInstance3D" parent="Flatte rook"]
+mesh = SubResource("PlaneMesh_qqloq")
+
+[node name="Road" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0414)
+
+[node name="Road" type="MeshInstance3D" parent="Road"]
+mesh = SubResource("PlaneMesh_p85ru")
+
+[node name="Platte rook" parent="." instance=ExtResource("1_vfp6w")]
